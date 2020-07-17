@@ -10,39 +10,59 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent {
   title = 'CalculatorApp';
-  
   addResult = '0';
   avgResult = '0';
+  firstNumber = '0';
+  secondNumber = '0';
+  numbers = '';
 
 
   constructor(private appService: AppService, private toastr: ToastrService) {
   }
 
+  /**
+   * Button that evaluated 2 numbers summtion.
+   */
 
   clickOnAddButton() {
-    this.appService.addTwoNumbers(8, 10).subscribe((response: any) => {
-      if (response.status === 200) {
-        this.toastr.success('Success!');
-        this.addResult = response.result;
-      } else {
-        this.toastr.error('Error!');
-        this.addResult = '0';
-      }
-    });
+    this.appService.addTwoNumbers(this.firstNumber, this.secondNumber)
+      .subscribe((response: any) => {
+        if (response.success === true) {
+          this.toastr.success('Success!', 'Correct!', {
+            timeOut: 3000,
+          });
+          this.addResult = response.result;
+        } else {
+          this.toastr.error('Error!', 'Major Error', {
+            timeOut: 3000,
+          });
+          this.addResult = '0';
+        }
+      });
   }
 
+  /**
+   * Split the numbers string of delimter (,)
+   */
   clickOnAverageButton() {
-    this.appService.averageNumbers([1, 2, 3, 4, 5]).subscribe((response: any) => {
-      console.log(response);
-      if (response.status === 200) {
-        this.toastr.success('Success!');
+    const numbersArray = this.numbers.split(',');
+    console.log(numbersArray)
+
+    this.appService.averageNumbers(numbersArray).subscribe((response: any) => {
+      console.log(response)
+
+      if (response.success === true) {
+        this.toastr.success('Success!', 'Correct!', {
+          timeOut: 3000,
+        });
         this.avgResult = response.result;
       } else {
-        this.toastr.error('Error!');
+        this.toastr.error('Error!', 'Major Error', {
+          timeOut: 3000,
+        });
         this.avgResult = '0';
       }
     });
   }
-
 
 }

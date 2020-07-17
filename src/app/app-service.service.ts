@@ -16,7 +16,7 @@ export class AppService {
   * @param secondNumber Second Number to be added.
   */
 
-  addTwoNumbers(firstNumber: number, secondNumber: number): Observable<Object> {
+  addTwoNumbers(firstNumber: string, secondNumber: string): Observable<Object> {
     return this.http.get(`http://localhost:3000/api/calc?firstNumber=${firstNumber}&secondNumber=${secondNumber}`);
   }
 
@@ -25,7 +25,7 @@ export class AppService {
    * @param numbers array of numbes to be averaged.
    */
 
-  averageNumbers(numbers: Array<number>): Observable<Object> {
+  averageNumbers(numbers: Array<string>): Observable<Object> {
     return this.http.post(`http://localhost:3000/api/calc`, { numbers });
   }
 

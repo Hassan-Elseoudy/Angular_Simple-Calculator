@@ -1,10 +1,18 @@
 <div>
   <h3>Adding two number</h3>
-  <> <option>num</option>   </select>
+  <input [(ngModel)] = "firstNumber"  pattern="/^[+-]?\d+(\.\d+)?$/" title="Only numbers allowed!"/>
+  <input [(ngModel)] = "secondNumber" pattern="/^[+-]?\d+(\.\d+)?$/" title="Only numbers allowed!"/>  
   <h3>Add result: {{addResult}}</h3>
-
-  <h3>Avg result: {{addResult}}</h3>
+  <button (click) = "clickOnAddButton()">Add</button>
 
 </div>
 
-<button (click) = "clickOnAddButton()">Add</button>
+<div>
+  <h3>Average Number</h3>
+  <h2>Please enter numbers, seperated by comma e.g. 1,8,5,6,9,8</h2>
+  <input [(ngModel)] = "numbers" />  
+
+  <h3>Avg result: {{avgResult}}</h3>
+  <button (click) = "clickOnAverageButton()">Get Average</button>
+
+</div>
