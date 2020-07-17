@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  api: 'https://safe-plains-73221.herokuapp.com/'
 };
