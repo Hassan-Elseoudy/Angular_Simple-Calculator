@@ -9,14 +9,12 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-  * This function is used to get 2 numbers and add them upon click
-  * 
-  * @param firstNumber First Number to be added.
-  * @param secondNumber Second Number to be added.
-  */
-
-  addTwoNumbers(firstNumber: string, secondNumber: string): Observable<Object> {
+/**
+ * This function is used to get 2 numbers and add them upon click
+ * @param firstNumber First Number to be added.
+ * @param secondNumber Second Number to be added.
+ */
+  addTwoNumbers(firstNumber: string, secondNumber: string): Observable<object> {
     return this.http.get(`http://localhost:3000/api/calc?firstNumber=${firstNumber}&secondNumber=${secondNumber}`);
   }
 
@@ -25,7 +23,7 @@ export class AppService {
    * @param numbers array of numbes to be averaged.
    */
 
-  averageNumbers(numbers: Array<string>): Observable<Object> {
+  averageNumbers(numbers: Array<string>): Observable<object> {
     return this.http.post(`http://localhost:3000/api/calc`, { numbers });
   }
 

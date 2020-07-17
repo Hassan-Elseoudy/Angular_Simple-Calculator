@@ -46,11 +46,8 @@ export class AppComponent {
    */
   clickOnAverageButton() {
     const numbersArray = this.numbers.split(',');
-    console.log(numbersArray)
 
     this.appService.averageNumbers(numbersArray).subscribe((response: any) => {
-      console.log(response)
-
       if (response.success === true) {
         this.toastr.success('Success!', 'Correct!', {
           timeOut: 3000,
