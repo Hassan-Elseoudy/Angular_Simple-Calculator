@@ -18,3 +18,14 @@ The application is fully tested using `Karma`.
 ### Functions
   - Adding two numbers.
   - Getting an average for the list of numbers.
+
+### Deployment
+You can check the app running on: https://calculator-rabie-frontend.web.app/
+
+### Development server (Locally)
+
+Run `ng serve -o` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+### Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
